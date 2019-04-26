@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+      <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="quiz.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+        <script src="quiz.js" ></script>
+
+</head>
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#"><img class="logo" src="logo.PNG"></a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="quiz_login.html">Login</a></li>
+        <li class="active"> <a href="#">Sign Up</a></li>
+        <li><a href="instructions.html">Instructions</a></li>
+      </ul>
+    </div>
+  </nav>
+		<div class="container">
+			<h2 class="text-center" id="title">Did U know?</h2>
+
+ 			<hr>
+			<div class="row">
+				<div class="col-md-5">
+ 				<form role="form" method="post" action="/" id="signup">
+						<fieldset>
+							<p class="text-uppercase pull-center"> SIGN UP.</p>
+              <div class="form-group">
+                <input type="text" name="firstname" id="fname" class="form-control input-lg" placeholder="First Name"/>
+              </div>
+              <div class="form-group">
+                <input type="text" name="lastname" id="lname" class="form-control input-lg" placeholder="Last Name"/>
+              </div>
+							<div class="form-group">
+								<input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address"/>
+							</div>
+							<div class="form-group">
+								<input type="password" name="password" id="password1" class="form-control input-lg" placeholder="Password"/>
+							</div>
+								<div class="form-group">
+								<input type="password" name="password2" id="password2" class="form-control input-lg" placeholder="Password2"/>
+							</div>
+							<div class="form-check">
+								<label class="form-check-label">
+								  <input type="checkbox" class="form-check-input">
+								  By Clicking register you're agree to our policy & terms
+								</label>
+							  </div>
+ 							<div>
+ 									  <input type="submit" class="btn btn-lg btn-primary"   value="Register">
+ 							</div>
+						</fieldset>
+					</form>
+				</div>
+
+				<div class="col-md-2">
+					<!-------null------>
+				</div>
+
+				<div class="col-md-5">
+ 				 <!--		<form role="form" id="login" ACTION="/home.html">
+						<fieldset>
+							<p class="text-uppercase"> Login using your account: </p>
+
+							<div class="form-group">
+								<input type="email" name="username" id="username" class="form-control input-lg" placeholder="username">
+							</div>
+							<div class="form-group">
+								<input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password"/>
+							</div>
+							<div>
+								<input type="submit" class="btn btn-md" value="Sign In" id="login_btn"/>
+							</div>
+
+ 						</fieldset>
+				</form>-->
+				</div>
+			</div>
+		</div>
+		<p class="text-center">
+			<small id="passwordHelpInline" class="text-muted"> Help information</small>
+		</p>
+	</div>
+</body>
+</html>
