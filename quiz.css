@@ -8,3 +8,12 @@
 body{
   font-family: "Arial Black", Gadget, sans-serif;
 }
+.question{
+	font-weight: 600;
+}
+.answers {
+  margin-bottom: 20px;
+}
+.answers label{
+  display: block;
+}
