@@ -151,29 +151,75 @@ const myQuestions = [
     correctAnswer: "b"
   }
 
-  
+
 ];
   var x='';
   var i=0,j=0;
-  
-function show_quiz(){
-  for (i=0; i<myQuestions.length;i++)
+
+  var score = 0;
+  function show_score() {
+    score=0;
+  var inputs = quiz.elements;
+  var radios = [];
+
+  //Loop and find only the Radios
+  for (var i = 0; i < inputs.length; ++i) {
+  if (inputs[i].type == 'radio') {
+  radios.push(inputs[i]);
+  }
+  }
+
+  //var found = 1;
+  for (var i = 0; i < radios.length; i++) {
+  if (radios[i].checked) {
+  var question_number=(radios[i].name);
+  var question_val=(radios[i].value);
+  question_number=question_number.replace('question','');
+  q=Number(question_number)
+  var correctAnswer=(myQuestions[q].correctAnswer);
+  console.log(question_val);
+  if (question_val==correctAnswer)
   {
-    var question_i=myQuestions[i].question;
-    x=x+'<div class="question">'+ question_i+' </div>';
-	x=x+'<div class="answers">';
-	$.each( myQuestions[i].answers, function( key, value ) {
-		x=x+'<label><input type="radio" name="question'+i+'" value="'+key+'">'+key+' : '+value+'</label>'
-	});
-	x=x+'</div>'
-}
+
+    score=score+1;
+  }
+  //found = 0;
+  //break;
+  }
+  }
+  document.getElementById("score").innerHTML = score;
+
+
+  }
+
+
+
+
+  function show_quiz() {
+  for (i = 0; i < myQuestions.length; i++) {
+  var question_i = myQuestions[i].question;
+  x = x + '<div class="question">' + question_i + ' </div>';
+  x = x + '<div class="answers">';
+  $.each(myQuestions[i].answers, function (key, value) {
+  x = x + '<label><input type="radio" name="question' + i + '" value="' + key + '">' + key + ' : ' + value + '</label>'
+  });
+  x = x + '</div>'
+  //var hint = 'hint';
+//  x = x + '<button onclick="alert(';
+//  x = x + "'" + hint + "'";
+//  x = x + ')"';;
+//  x=x+'>Hint</button>';
+
+  }
   document.getElementById("quiz_list").innerHTML = x;
   }
-  </script>
-  
-<button onclick="show_quiz()">Play</button>
-<div id='quiz_list'></div>
- </div>
 
-</body>
+
+  </script>
+
+<button onclick="show_quiz()">Play</button>
+<button onclick="show_score()">Score</button>
+<span id='score'>0</span>
+
+<form name="quiz" id='quiz_list'></form>
 </html>
