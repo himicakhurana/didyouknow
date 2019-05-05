@@ -84,3 +84,28 @@ const myQuestions = [
   },
   correctAnswer: "c"
 }
+];
+  var x='';
+  var i=0,j=0;
+
+function show_quiz(){
+  for (i=0; i<myQuestions.length;i++)
+  {
+    var question_i=myQuestions[i].question;
+    x=x+'<div class="question">'+ question_i+' </div>';
+	x=x+'<div class="answers">';
+	$.each( myQuestions[i].answers, function( key, value ) {
+		x=x+'<label><input type="radio" name="question'+i+'" value="'+key+'">'+key+' : '+value+'</label>'
+	});
+	x=x+'</div>'
+}
+  document.getElementById("quiz_list").innerHTML = x;
+  }
+  </script>
+
+<button onclick="show_quiz()">Play</button>
+<div id='quiz_list'></div>
+ </div>
+
+</body>
+</html>
