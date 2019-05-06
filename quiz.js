@@ -1,12 +1,14 @@
     $(document).ready(function() {
 
         $("#login").submit(function (event) {
-          var          username = document.getElementById("username").value;
+          var username = document.getElementById("username").value;
         var password_val = document.getElementById("password").value;
-        if(username=='ariak20@gms.org'&& password_val=='yay112'){
+        var pass = localStorage.getItem(username);
+        console.log(pass);
+        if(password_val==pass){
 
           alert("Logged in.")
-            location.href = "home.html";
+            location.href = "index.html";
 
         }else{
           location.href = "quiz_signup.html";
@@ -18,14 +20,17 @@
         $("#signup").submit(function (event) {
           var          password1 = document.getElementById("password1").value;
         var password2 = document.getElementById("password2").value;
+        var email = document.getElementById("email").value;
         var fname = document.getElementById("fname").value;
         if(password2==password1){
           var length=password1.length;
-          if (length>5){
-            alert("TOO LONG!!!! CHANGE IT!!!")
+          if (length>10){
+            alert("Your passcode is too long. Change it please.")
           }
           validate_name(fname);
-            location.href = "home.html";
+          console.log(email);
+          localStorage.setItem(email, password1);
+            location.href = "quiz_login.html";
 
         }else{
           alert("Password 1 and password 2 do not match")
@@ -41,7 +46,6 @@
     });
 
 function validate_name(name){
-  alert(name.length);
 }
 const myQuestions = [
   {

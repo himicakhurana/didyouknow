@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ocean</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="quiz.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"><img class="logo" src="logo.PNG"></a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="quiz_login.html">Login</a></li>
+      <li><a href="quiz_signup.html">Sign Up</a></li>
+      <li><a href="instructions.html">Instructions</a></li>
+      <li><a href="ocean.html">Ocean</a></li>
+     <li><a href="gun.html">Guns</a></li>
+     <li class="active"<a href="#">Rights</a><li>
+     <li><a href="lgbtq.html">LGBTQ+</a></li>
+     <li><a href="religion.html">Religion</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+
+<script>
+const myQuestions = [
+  {
+    question: "About how many people are enslaved in the human trafficking trade around the world?"
+    answers: {
+      a: "27 million"
+      b: "20 million"
+      c: "15 million"
+      d: "23 million"
+    },
+    correctAnswer: "a"
+  }
+  {
+    question: "How many children under the age of 18 are being forced to be child soliders?"
+    answers: {
+      a: "250,000"
+      b: "300,000"
+      c: "350,000"
+      d: "400,000"
+    },
+    correctAnswer: "b"
+  }
+  {
+    question: "About how many child laborers are there?"
+    answers: {
+      a: "202 million"
+      b: "230 million"
+      c: "238 million"
+      d: "246 million"
+    },
+    correctAnswer: "d"
+  }
+  {
+    question: "About how many children under the age of 15 in the world suffer from abuse and neglect?"
+    answers: {
+      a: "35 million"
+      b: "40 million"
+      c: "45 million"
+      d: "43 million"
+    },
+    correctAnswer: "b"
+  }
+}
+{
+  question: "Though 2/3 of the world has abolished death penalty, how many people were knowingly executed in 2006? "
+  answers: {
+    a: "1,424"
+    b: "1,501"
+    c: "1,591"
+    d: "1,602"
+  },
+  correctAnswer: "c"
+}
+];
+  var x='';
+  var i=0,j=0;
+
+function show_quiz(){
+  for (i=0; i<myQuestions.length;i++)
+  {
+    var question_i=myQuestions[i].question;
+    x=x+'<div class="question">'+ question_i+' </div>';
+	x=x+'<div class="answers">';
+	$.each( myQuestions[i].answers, function( key, value ) {
+		x=x+'<label><input type="radio" name="question'+i+'" value="'+key+'">'+key+' : '+value+'</label>'
+	});
+	x=x+'</div>'
+}
+  document.getElementById("quiz_list").innerHTML = x;
+  }
+  </script>
+
+<button onclick="show_quiz()">Play</button>
+<div id='quiz_list'></div>
+ </div>
+
+</body>
+</html>
