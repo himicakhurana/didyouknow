@@ -13,18 +13,20 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#"><img class="logo" src="logo.PNG"></a>
+            <a class="navbar-brand" href="index.html"><img class="logo" src="logo.PNG"></a>
     </div>
     <ul class="nav navbar-nav">
-      <li><a href="home.html">Home</a></li>
+      <li><a href="index.html">Home</a></li>
       <li><a href="quiz_login.html">Login</a></li>
       <li><a href="quiz_signup.html">Sign Up</a></li>
       <li><a href="instructions.html">Instructions</a></li>
-	   <li class="active"><a href="#">Ocean </a></li>
-     <li><a href="gun.html">Guns</a></li>
-     <li><a href="religion.">Religion</a></li>
-     <li><a href="lgbtq.html">LGBTQ+</a></li>
-     <li><a href="rights.html">Rights</a></li>
+      <li class="active"><a href="#">Ocean</a></li>
+      <li><a href="gun.html">Guns</a></li>
+      <li><a href="religion.html">Religion</a></li>
+      <li><a href="lgbtq.html">LGBTQ</a></li>
+      <li><a href="rights.html">Rights</a></li>
+      <li><a href="quiz_aria.html">Play </a></li>
+
     </ul>
   </div>
 </nav>
@@ -53,59 +55,120 @@ const myQuestions = [
         d: "2300"
       },
       correctAnswer: "b"
-    }
+    },
     {
-      question: "How many pounds of plastic are being dumped into the ocean each hour?"
+      question: "How many pounds of plastic are being dumped into the ocean each hour?",
       answers: {
-        a: "1 million"
-        b: "1.5 million"
-        c: "2 million"
-        d: "500,000"
+        a: "1 million",
+        b: "1.5 million",
+        c: "2 million",
+        d: "500,000",
       },
       correctAnswer: "b"
-    }
+    },
     {
-      question: "How many mammals are killed each year because of ocean pollution?"
+      question: "How many mammals are killed each year because of ocean pollution?",
       answers: {
-        a: "1,000"
-        b: "10,000"
-        c: "100,000"
-        d: "200,000"
+        a: "1,000",
+        b: "10,000",
+        c: "100,000",
+        d: "200,000",
       },
       correctAnswer: "c"
-    }
+    },
     {
-      questions: "Out of the turtle population, how many have consumed plastic?"
+      questions: "Out of the turtle population, how many have consumed plastic?",
       answers: {
-        a: "30%"
-        b: "45%"
-        c: "60%"
-        d: "50%"
+        a: "30%",
+        b: "45%",
+        c: "60%",
+        d: "50%",
       },
       correctAnswer: "d"
     }
-];
-  var x='';
-  var i=0,j=0;
+];         var x = '';
+        var i = 0, j = 0;
 
-function show_quiz(){
-  for (i=0; i<myQuestions.length;i++)
-  {
-    var question_i=myQuestions[i].question;
-    x=x+'<div class="question">'+ question_i+' </div>';
-	x=x+'<div class="answers">';
-	$.each( myQuestions[i].answers, function( key, value ) {
-		x=x+'<label><input type="radio" name="question'+i+'" value="'+key+'">'+key+' : '+value+'</label>'
-	});
-	x=x+'</div>'
-}
-  document.getElementById("quiz_list").innerHTML = x;
-  }
-  </script>
+        var score = 0;
+        function show_score() {
+            score = 0;
+            var inputs = quiz.elements;
+            var radios = [];
 
-<button onclick="show_quiz()">Play</button>
-<div id='quiz_list'></div>
- </div>
+            //Loop and find only the Radios
+            for (var i = 0; i < inputs.length; ++i) {
+                if (inputs[i].type == 'radio') {
+                    radios.push(inputs[i]);
+                }
+            }
 
+            //var found = 1;
+            for (var i = 0; i < radios.length; i++) {
+                var question_number = (radios[i].name);
+                var question_val = (radios[i].value);
+                question_number = question_number.replace('question', '');
+                q = Number(question_number);
+                var correctAnswer = (myQuestions[q].correctAnswer);
+
+                if (radios[i].checked) {
+                    console.log(question_val);
+                    if (question_val == correctAnswer) {
+                        score = score + 1;
+                        radios[i].parentElement.setAttribute("class", "correct-answer");
+                    } else {
+                        radios[i].parentElement.setAttribute("class", "wrong-answer");
+                        var node = document.createElement("span");
+                        var textnode = document.createTextNode('Correct Answer : ' + correctAnswer);
+                        node.appendChild(textnode);
+                        if (!radios[i].parentElement.parentElement.querySelector('span')) {
+                            radios[i].parentElement.parentElement.appendChild(node);
+                        }
+
+                    }
+
+
+                } else {
+
+                    radios[i].parentElement.setAttribute("class", "unchecked-answer");
+
+
+                }
+
+
+            }
+            document.getElementById("score").innerHTML = score;
+
+
+        }
+
+
+        function show_quiz() {
+            for (i = 0; i < myQuestions.length; i++) {
+                var question_i = myQuestions[i].question;
+                x = x + '<div class="question">' + question_i + ' </div>';
+                x = x + '<div class="answers">';
+                $.each(myQuestions[i].answers, function (key, value) {
+                    x = x + '<label><input type="radio" name="question' + i + '" value="' + key + '">' + key + ' : ' + value + '</label>'
+                });
+                x = x + '</div>'
+                //var hint = 'hint';
+//  x = x + '<button onclick="alert(';
+//  x = x + "'" + hint + "'";
+//  x = x + ')"';;
+//  x=x+'>Hint</button>';
+
+            }
+            document.getElementById("quiz_list").innerHTML = x;
+        }
+
+
+    </script>
+
+    <button onclick="show_quiz()">Play</button>
+    <button onclick="show_score()">Score</button>
+    <span id='score'>0</span>
+
+    <form name="quiz" id='quiz_list'></form>
+</div>
 </body>
 </html>

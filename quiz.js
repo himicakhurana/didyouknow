@@ -7,7 +7,7 @@
         console.log(pass);
         if(password_val==pass){
 
-          alert("Logged in.")
+          alert("Logged in.");
             location.href = "index.html";
 
         }else{

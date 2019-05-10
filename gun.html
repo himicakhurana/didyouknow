@@ -1,97 +1,163 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Ocean</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="quiz.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Guns</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="quiz.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#"><img class="logo" src="logo.PNG"></a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li><a href="home.html">Home</a></li>
-      <li><a href="quiz_login.html">Login</a></li>
-      <li><a href="quiz_signup.html">Sign Up</a></li>
-      <li><a href="instructions.html">Instructions</a></li>
-	   <li><a href="ocean.html">Ocean</a></li>
-     <li class="active"><a href="#">Guns</a></li>
-     <li><a href="religion.html">Religion</a></li>
-     <li><a href="lgbtq.html">LGBTQ+</a></li>
-     <li><a href="rights.html">Rights</a></li>
-    </ul>
-  </div>
-</nav>
-<script>
-const myQuestions = [
-  {
-    question:"What is the average number of guns per person in the U.S?",
-    answers: {
-      a: "1 gun per 2 people",
-      b: "1 gun per 3 people",
-      c: "6 guns per 5 people",
-      d: "1 gun per 1 person",
-  },
-  correctAnswer: "c",
-  hint:"USE YOUR BRAIN"
-  }
-  {
-    question: "How many children are killed or injured due to guns?",
-    answers: {
-      a: "5 children injured or killed a week.",
-      b: "One child killed or injured per day.",
-      c: "6 children killed or injured per week.",
-      d: "2 children killed or injured per hour."
-  },
-  correctAnswer: "c"
-    }
-    question: "How many school shootings have there been in 2018?"
-    answers: {
-      a: "4"
-      b: "15"
-      c: "21"
-      d: "23"
-    },
-    correctAnswer: "d"
-    }
-    {
-    question: "How many people are killed or injured because of a gun for school shootings in 2017?"
-    answers: {
-      a: "20"
-      b: "49"
-      c: "95"
-      d: "124"
-    },
-    correctAnswer: "d"
-    }
-  ];
-    var x='';
-    var i=0,j=0;
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html"><img class="logo" src="logo.PNG"></a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="quiz_login.html">Login</a></li>
+            <li><a href="quiz_signup.html">Sign Up</a></li>
+            <li><a href="instructions.html">Instructions</a></li>
+            <li><a href="ocean.html">Ocean</a></li>
+            <li class="active"><a href="#">Guns</a></li>
+            <li><a href="religion.html">Religion</a></li>
+            <li><a href="lgbtq.html">LGBTQ</a></li>
+            <li><a href="rights.html">Rights</a></li>
+            <li><a href="quiz_aria.html">Play </a></li>
 
-  function show_quiz(){
-    for (i=0; i<myQuestions.length;i++)
-    {
-      var question_i=myQuestions[i].question;
-      x=x+'<div class="question">'+ question_i+' </div>';
-  	x=x+'<div class="answers">';
-  	$.each( myQuestions[i].answers, function( key, value ) {
-  		x=x+'<label><input type="radio" name="question'+i+'" value="'+key+'">'+key+' : '+value+'</label>'
-  	});
-  	x=x+'</div>'
-  }
-    document.getElementById("quiz_list").innerHTML = x;
-    }
+        </ul>
+    </div>
+</nav>
+<div class="container">
+
+    <script>
+        const myQuestions = [
+            {
+                question: "What is the average number of guns per person in the U.S?",
+                answers: {
+                    a: "1 gun per 2 people",
+                    b: "1 gun per 3 people",
+                    c: "6 guns per 5 people",
+                    d: "1 gun per 1 person",
+                },
+                correctAnswer: "c",
+                hint: "USE YOUR BRAIN"
+            },
+            {
+                question: "How many children are killed or injured due to guns?",
+                answers: {
+                    a: "5 children injured or killed a week.",
+                    b: "One child killed or injured per day.",
+                    c: "6 children killed or injured per week.",
+                    d: "2 children killed or injured per hour."
+                },
+                correctAnswer: "c"
+            }, {
+                question: "How many school shootings have there been in 2018?",
+                answers: {
+                    a: "4",
+                    b: "15",
+                    c: "21",
+                    d: "23"
+                },
+                correctAnswer: "d"
+            },
+            {
+                question: "How many people are killed or injured because of a gun for school shootings in 2017?",
+                answers: {
+                    a: "20",
+                    b: "49",
+                    c: "95",
+                    d: "124"
+                },
+                correctAnswer: "d"
+            }
+        ];
+        var x = '';
+        var i = 0, j = 0;
+
+        var score = 0;
+        function show_score() {
+            score = 0;
+            var inputs = quiz.elements;
+            var radios = [];
+
+            //Loop and find only the Radios
+            for (var i = 0; i < inputs.length; ++i) {
+                if (inputs[i].type == 'radio') {
+                    radios.push(inputs[i]);
+                }
+            }
+
+            //var found = 1;
+            for (var i = 0; i < radios.length; i++) {
+                var question_number = (radios[i].name);
+                var question_val = (radios[i].value);
+                question_number = question_number.replace('question', '');
+                q = Number(question_number);
+                var correctAnswer = (myQuestions[q].correctAnswer);
+
+                if (radios[i].checked) {
+                    console.log(question_val);
+                    if (question_val == correctAnswer) {
+                        score = score + 1;
+                        radios[i].parentElement.setAttribute("class", "correct-answer");
+                    } else {
+                        radios[i].parentElement.setAttribute("class", "wrong-answer");
+                        var node = document.createElement("span");
+                        var textnode = document.createTextNode('Correct Answer : ' + correctAnswer);
+                        node.appendChild(textnode);
+                        if (!radios[i].parentElement.parentElement.querySelector('span')) {
+                            radios[i].parentElement.parentElement.appendChild(node);
+                        }
+
+                    }
+
+
+                } else {
+
+                    radios[i].parentElement.setAttribute("class", "unchecked-answer");
+
+
+                }
+
+
+            }
+            document.getElementById("score").innerHTML = score;
+
+
+        }
+
+
+        function show_quiz() {
+            for (i = 0; i < myQuestions.length; i++) {
+                var question_i = myQuestions[i].question;
+                x = x + '<div class="question">' + question_i + ' </div>';
+                x = x + '<div class="answers">';
+                $.each(myQuestions[i].answers, function (key, value) {
+                    x = x + '<label><input type="radio" name="question' + i + '" value="' + key + '">' + key + ' : ' + value + '</label>'
+                });
+                x = x + '</div>'
+                //var hint = 'hint';
+//  x = x + '<button onclick="alert(';
+//  x = x + "'" + hint + "'";
+//  x = x + ')"';;
+//  x=x+'>Hint</button>';
+
+            }
+            document.getElementById("quiz_list").innerHTML = x;
+        }
+
+
     </script>
 
-  <button onclick="show_quiz()">Play</button>
-  <div id='quiz_list'></div>
-   </div>
+    <button onclick="show_quiz()">Play</button>
+    <button onclick="show_score()">Score</button>
+    <span id='score'>0</span>
 
-  </body>
-  </html>
+    <form name="quiz" id='quiz_list'></form>
+</div>
+</body>
+</html>
