@@ -1,39 +1,18 @@
-<!DOCTYPE html>
+
+<DOCTYPE html>
 <html>
 <head>
-    <title>Did You Know</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="quiz.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="index.html"><img class="logo" src="logo.PNG"></a>
-        </div>
-        <ul class="nav navbar-nav">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="quiz_login.html">Login</a></li>
-            <li><a href="quiz_signup.html">Sign Up</a></li>
-            <li><a href="instructions.html">Instructions</a></li>
-            <li><a href="ocean.html">Ocean</a></li>
-            <li><a href="gun.html">Guns</a></li>
-            <li><a href="lgbtq.html">LGBTQ</a></li>
-            <li><a href="rights.html">Rights</a></li>
-            <li class="active"><a href="#">Calculator </a></li>
-        </ul>
-    </div>
-</nav>
-
-<div class="container">
-
+<meta charset=utf-8 />
+<title> Did U Know?</title>
+<style> type="text/css">
+body {margin: 30px;}
+.redx{
+  height: 210px;
+  width: 216px;
+}
+</style>
     <script>
-
-          function multiplyBy()
+        function multiplyBy()
 {
 
         num1 = document.getElementById("firstNumber").value;
@@ -96,10 +75,10 @@ document.getElementById("result").innerHTML = num1 - num2;
 }
 
 
-
     </script>
-
-    <h1>Guess The Calculation!</h1>
+</head>
+<body>
+  <h1>Guess The Calculation!</h1>
 <form>
 1st Number: <input type="text" id="firstNumber" required /><br>
 2nd Number: <input type="number" id="secondNumber" /><br>
@@ -118,7 +97,5 @@ Guess Number: with new id
 <p>The Result is: <br>
 <span id = "result"></span>
 </p>
-
-</div>
 </body>
 </html>
