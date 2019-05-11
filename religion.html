@@ -57,7 +57,7 @@ const myQuestions = [
     correctAnswer: "c"
   },
   {
-    question: "In what fraction of countries were women harassed while wearing religous clothing?",
+    question: "In what fraction of countries were women harassed while wearing religious clothing?",
     answers: {
       a: "1/3",
       b: "1/4",
@@ -143,6 +143,8 @@ const myQuestions = [
 
 
         function show_quiz() {
+                                    x = '';
+
             for (i = 0; i < myQuestions.length; i++) {
                 var question_i = myQuestions[i].question;
                 x = x + '<div class="question">' + question_i + ' </div>';

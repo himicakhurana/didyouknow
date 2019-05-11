@@ -46,7 +46,7 @@ const myQuestions = [
     correctAnswer: "a",
   },
   {
-    question: "How many children under the age of 18 are being forced to be child soliders?",
+    question: "How many children under the age of 18 are being forced to be child soldiers?",
     answers: {
       a: "250,000",
       b: "300,000",
@@ -143,6 +143,8 @@ const myQuestions = [
 
 
         function show_quiz() {
+                                    x = '';
+
             for (i = 0; i < myQuestions.length; i++) {
                 var question_i = myQuestions[i].question;
                 x = x + '<div class="question">' + question_i + ' </div>';
