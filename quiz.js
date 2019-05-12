@@ -11,6 +11,7 @@
             location.href = "index.html";
 
         }else{
+            alert('Invalid Credentials. Please signup')
           location.href = "quiz_signup.html";
         }
 
@@ -25,11 +26,12 @@
         if(password2==password1){
           var length=password1.length;
           if (length>10){
-            alert("Your passcode is too long. Change it please.")
+            alert("Your password is too long. Change it please.")
           }
           validate_name(fname);
           console.log(email);
           localStorage.setItem(email, password1);
+          alert('Hi '+fname+ 'You can login now.');
             location.href = "quiz_login.html";
 
         }else{
